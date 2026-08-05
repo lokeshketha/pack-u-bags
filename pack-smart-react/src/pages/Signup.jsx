@@ -8,6 +8,13 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const name = nameInput ? nameInput.value : 'Traveler';
+    const email = emailInput ? emailInput.value : '';
+    localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userName', name);
     navigate('/dashboard');
   };
 

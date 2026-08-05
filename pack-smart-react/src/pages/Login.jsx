@@ -6,13 +6,16 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
   const from = location.state?.from?.pathname || '/dashboard';
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simulate login
+    const emailInput = document.getElementById('email');
+    const email = emailInput ? emailInput.value : '';
+    const name = email ? email.split('@')[0] : 'Traveler';
     localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userName', name);
     navigate(from, { replace: true });
   };
 

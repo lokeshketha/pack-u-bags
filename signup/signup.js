@@ -1,5 +1,5 @@
 import { auth } from "../firebase-config.js";
-import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 // PackSmart Signup Page Script
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Form Submit Handler
-    signupForm.addEventListener('submit', (e) => {
+    signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         let isValid = true;
 
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validate Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
+        if (!emailRegex.test(emailInput.value.trim())) {
             showError(emailInput, 'Please enter a valid email address', 'email-error');
             isValid = false;
         }
@@ -140,42 +140,81 @@ document.addEventListener('DOMContentLoaded', () => {
             isValid = false;
         }
 
-        // If form is valid, mock submission
         if (isValid) {
             const btn = document.getElementById('signup-btn');
             const originalText = btn.innerHTML;
             
-            // Loading state
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Creating account...';
             btn.style.opacity = '0.8';
             btn.disabled = true;
 
-            const name = fullnameInput.value;
-            const email = emailInput.value;
+            const name = fullnameInput.value.trim();
+            const email = emailInput.value.trim();
             const password = passwordInput.value;
 
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    // Update user profile with name
-                    return updateProfile(user, {
-                        displayName: name
-                    });
-                })
-                .then(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                    
-                    alert('Account created successfully! Welcome to PackSmart.');
-                    window.location.href = '../dashboard/'; // Redirect to dashboard
-                })
-                .catch((error) => {
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                    alert(`Signup failed: ${error.message}`);
-                });
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                
+                await updateProfile(user, { displayName: name });
+
+                localStorage.setItem('isAuthenticated', 'true');
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userName', name);
+
+                btn.innerHTML = originalText;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+                
+                window.location.href = '../dashboard/';
+            } catch (error) {
+                btn.innerHTML = originalText;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+                console.error('Signup Error:', error);
+
+                let msg = error.message;
+                if (error.code === 'auth/email-already-in-use') {
+                    msg = 'This email is already registered. Please go to Login.';
+                } else if (error.code === 'auth/weak-password') {
+                    msg = 'Password is too weak. Please use a stronger password.';
+                } else if (error.code === 'auth/unauthorized-domain') {
+                    msg = 'This domain is not authorized in your Firebase project. Please add your Vercel URL under Firebase Console -> Authentication -> Settings -> Authorized Domains.';
+                }
+                alert(`Signup Failed: ${msg}`);
+            }
+        }
+    });
+
+    // Google Sign-Up
+    const socialBtns = document.querySelectorAll('.social-login .social-btn');
+    socialBtns.forEach(btn => {
+        if (btn.textContent.includes('Google')) {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const provider = new GoogleAuthProvider();
+                try {
+                    const result = await signInWithPopup(auth, provider);
+                    const user = result.user;
+                    const displayName = user.displayName || user.email.split('@')[0];
+                    localStorage.setItem('isAuthenticated', 'true');
+                    localStorage.setItem('userEmail', user.email);
+                    localStorage.setItem('userName', displayName);
+                    if (user.photoURL) {
+                        localStorage.setItem('profilePhoto', user.photoURL);
+                    }
+                    window.location.href = '../dashboard/';
+                } catch (err) {
+                    console.error('Google Sign-Up Error:', err);
+                    let msg = err.message;
+                    if (err.code === 'auth/unauthorized-domain') {
+                        msg = 'This domain is not authorized in your Firebase project. Please add your Vercel URL under Firebase Console -> Authentication -> Settings -> Authorized Domains.';
+                    } else if (err.code === 'auth/popup-closed-by-user') {
+                        return;
+                    }
+                    alert(`Google Sign-Up Failed: ${msg}`);
+                }
+            });
         }
     });
 });
