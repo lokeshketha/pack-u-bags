@@ -62,7 +62,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <Link 
           to="/login" 
           className="nav-item logout"
-          onClick={() => localStorage.removeItem('isAuthenticated')}
+          onClick={() => {
+            localStorage.removeItem('isAuthenticated');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('profilePhoto');
+          }}
         >
           <i className="fa-solid fa-arrow-right-from-bracket"></i>
           <span>Logout</span>
