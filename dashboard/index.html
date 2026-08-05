@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | PackSmart</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Dashboard Specific Styles -->
+    <link rel="stylesheet" href="../dashboard/dashboard.css?v=5">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>PackSmart</span>
+            </a>
+            <button class="close-sidebar" id="close-sidebar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <div class="user-profile" onclick="window.location.href='../settings/index.html'" style="cursor: pointer; transition: var(--transition);" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">
+            <div class="avatar">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff" alt="User Avatar">
+            </div>
+            <div class="user-info">
+                <h4>John Doe</h4>
+                <span>Pro Member</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-border-all"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../progress/index.html" class="nav-item">
+                <i class="fa-solid fa-plane"></i>
+                <span>My Trips</span>
+            </a>
+            <a href="../list/index.html" class="nav-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Packing Lists</span>
+            </a>
+            <a href="../settings/index.html" class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <nav class="sidebar-nav">
+            <!-- existing links -->
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="../login/index.html" class="nav-item logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div style="display: flex; align-items: center;">
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h2>Welcome back, John! 👋</h2>
+                    <p>Here is your travel overview.</p>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="trip-search" class="search-input" placeholder="Search trips...">
+                <button class="mic-btn" id="mic-btn" title="Search by voice">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <div class="notification-wrapper" style="position: relative;">
+                    <button class="icon-btn notification-btn" id="notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="badge">2</span>
+                    </button>
+                    
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown glass-card" id="notification-dropdown">
+                        <div class="dropdown-header">
+                            <h4>Notifications</h4>
+                            <span class="mark-read" id="mark-all-read">Mark all as read</span>
+                        </div>
+                        <div class="notification-list" id="notification-list">
+                            <div class="notification-item unread">
+                                <div class="notif-icon" style="color: #6366f1; background: rgba(99, 102, 241, 0.1);"><i class="fa-solid fa-plane-departure"></i></div>
+                                <div class="notif-content">
+                                    <p>Upcoming trip to <strong>Goa</strong> in 3 days!</p>
+                                    <span>2 hours ago</span>
+                                </div>
+                                <button class="delete-notif-btn" title="Delete"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notif-icon" style="color: #22c55e; background: rgba(34, 197, 94, 0.1);"><i class="fa-solid fa-shirt"></i></div>
+                                <div class="notif-content">
+                                    <p>Reminder: Pack <strong>Swimwear</strong></p>
+                                    <span>Yesterday</span>
+                                </div>
+                                <button class="delete-notif-btn" title="Delete"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">View all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary create-btn" onclick="window.location.href='../plan/index.html'">
+                    <i class="fa-solid fa-plus"></i> <span>Create New Trip</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card glass-card floating-animation" style="animation-delay: 0s;">
+                <div class="stat-icon" style="color: #0ea5e9; background: rgba(14, 165, 233, 0.1);">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>12</h3>
+                    <p>Total Trips</p>
+                </div>
+            </div>
+            
+            <div class="stat-card glass-card floating-animation" style="animation-delay: 0.2s;">
+                <div class="stat-icon" style="color: #8b5cf6; background: rgba(139, 92, 246, 0.1);">
+                    <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>2</h3>
+                    <p>Upcoming Trips</p>
+                </div>
+            </div>
+
+            <div class="stat-card glass-card floating-animation" style="animation-delay: 0.4s;">
+                <div class="stat-icon" style="color: #22c55e; background: rgba(34, 197, 94, 0.1);">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>145</h3>
+                    <p>Packed Items</p>
+                </div>
+            </div>
+
+            <div class="stat-card glass-card floating-animation" style="animation-delay: 0.6s;">
+                <div class="stat-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1);">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>85%</h3>
+                    <p>Completion Avg</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Recent Trips -->
+            <div class="recent-trips glass-card">
+                <div class="card-header">
+                    <h3>Recent & Upcoming Trips</h3>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                
+                <div class="trip-list">
+                    <!-- Goa Trip -->
+                    <div class="trip-item">
+                        <div class="trip-image" style="background-image: url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=150&q=80');">
+                            <div class="trip-date">Oct 12</div>
+                        </div>
+                        <div class="trip-details">
+                            <h4>Goa, India</h4>
+                            <p>Beach Vacation • 5 Days</p>
+                            <div class="trip-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%; background: #22c55e;"></div>
+                                </div>
+                                <span>100% Packed</span>
+                            </div>
+                        </div>
+                        <div class="trip-actions">
+                            <button class="btn btn-outline btn-sm" onclick="window.location.href='../list/index.html'">View List</button>
+                        </div>
+                    </div>
+
+                    <!-- Bali Trip -->
+                    <div class="trip-item">
+                        <div class="trip-image" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=150&q=80');">
+                            <div class="trip-date">Nov 05</div>
+                        </div>
+                        <div class="trip-details">
+                            <h4>Bali, Indonesia</h4>
+                            <p>Adventure • 10 Days</p>
+                            <div class="trip-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%;"></div>
+                                </div>
+                                <span>65% Packed</span>
+                            </div>
+                        </div>
+                        <div class="trip-actions">
+                            <button class="btn btn-primary btn-sm">Resume</button>
+                        </div>
+                    </div>
+
+                    <!-- Manali Trip -->
+                    <div class="trip-item">
+                        <div class="trip-image" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=150&q=80');">
+                            <div class="trip-date">Dec 20</div>
+                        </div>
+                        <div class="trip-details">
+                            <h4>Manali, India</h4>
+                            <p>Winter Sports • 7 Days</p>
+                            <div class="trip-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 10%;"></div>
+                                </div>
+                                <span>10% Packed</span>
+                            </div>
+                        </div>
+                        <div class="trip-actions">
+                            <button class="btn btn-primary btn-sm">Resume</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-section glass-card">
+                <div class="card-header">
+                    <h3>Packing Analytics</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="packingChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Decorative Elements -->
+    <div class="blob blob-1" style="top: -50px; left: -50px; width: 400px; height: 400px; opacity: 0.3;"></div>
+    <div class="blob blob-2" style="bottom: -100px; right: -50px; width: 500px; height: 500px; opacity: 0.3;"></div>
+
+    <script src="../dashboard/dashboard.js?v=3"></script>
+</body>
+</html>

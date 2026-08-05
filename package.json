@@ -1,0 +1,12 @@
+{
+  "name": "pack-u-smart",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix pack-smart-react run dev",
+    "build": "npm --prefix pack-smart-react run build",
+    "preview": "npm --prefix pack-smart-react run preview"
+  },
+  "dependencies": {
+    "firebase": "^12.14.0"
+  }
+}

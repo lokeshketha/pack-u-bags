@@ -1,0 +1,89 @@
+/* 
+   =================================================
+   PackSmart - Signup Specific Styles
+   =================================================
+*/
+
+.password-strength {
+    margin-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-text {
+    color: var(--text-muted);
+    min-width: 60px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.error-text {
+    color: #ef4444; /* Red color for error */
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.input-group.error .input-wrapper input {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+.input-group.error .input-wrapper i:first-child {
+    color: #ef4444;
+}
+
+.input-group.error .error-text {
+    display: block;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.terms-checkbox {
+    align-items: flex-start;
+}
+
+.terms-checkbox span {
+    line-height: 1.4;
+    margin-top: -2px;
+}
+
+.terms-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* Adjust card padding slightly to fit the extra fields better */
+.login-card {
+    padding: 2.5rem 2.5rem;
+}

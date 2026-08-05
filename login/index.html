@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | PackSmart</title>
+    <meta name="description" content="Log in to your PackSmart account to access your smart travel packing lists.">
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Login Specific Styles -->
+    <link rel="stylesheet" href="login.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <!-- Logo -->
+        <a href="../" class="logo login-logo">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            <span>PackSmart</span>
+        </a>
+
+        <!-- Login Card -->
+        <div class="glass-card login-card floating-animation">
+            <h2>Welcome Back</h2>
+            <p class="login-subtitle">Sign in to access your smart packing lists.</p>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" id="toggle-password">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="login-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary login-btn">Sign In</button>
+            </form>
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn btn-secondary social-btn">
+                    <i class="fa-brands fa-google"></i> Google
+                </button>
+                <button class="btn btn-secondary social-btn">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </button>
+            </div>
+
+            <p class="signup-prompt">
+                Don't have an account? <a href="../signup/">Sign up</a>
+            </p>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <script type="module" src="login.js"></script>
+</body>
+</html>

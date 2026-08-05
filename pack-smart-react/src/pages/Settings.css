@@ -1,0 +1,425 @@
+/* 
+   =================================================
+   PackSmart - Settings Page Styles
+   =================================================
+*/
+
+.settings-body {
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-left: 280px; /* Offset for global Sidebar */
+    position: relative;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .settings-body {
+        padding-left: 0;
+    }
+}
+
+.settings-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.settings-header {
+    margin-bottom: 3rem;
+}
+
+.settings-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Sidebar Navigation */
+.settings-sidebar {
+    position: sticky;
+    top: 100px;
+    background: var(--settings-sidebar-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.settings-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-nav li {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.settings-nav li i {
+    width: 20px;
+    text-align: center;
+}
+
+.settings-nav li:hover {
+    background: var(--glass-bg);
+    color: var(--text-main);
+}
+
+.settings-nav li.active {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+    border-left-color: var(--primary);
+    font-weight: 500;
+}
+
+/* Sections */
+.settings-section {
+    padding: 2.5rem;
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.settings-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Profile Section Specifics */
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.avatar-edit-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+.avatar-edit-btn:hover {
+    transform: scale(1.1);
+}
+
+.avatar-info h4 {
+    margin-bottom: 0.3rem;
+}
+
+.avatar-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i:first-child {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper input, .input-wrapper select {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.8rem;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: var(--font-family);
+    transition: var(--transition);
+}
+
+.input-wrapper input:focus, .input-wrapper select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--input-bg-focus);
+}
+
+/* Custom Select Dropdown styling */
+select.custom-select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Add custom arrow to select */
+.input-wrapper.select-wrapper::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1.2rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    font-size: 0.8rem;
+}
+
+.input-wrapper input[type="number"] {
+    appearance: auto;
+}
+
+.form-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Preferences Items */
+.preference-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.preference-item:last-of-type {
+    border-bottom: none;
+}
+
+.pref-info h4 {
+    margin-bottom: 0.3rem;
+}
+
+.pref-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Theme Toggles */
+.theme-toggles {
+    display: flex;
+    gap: 1rem;
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--glass-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 80px;
+}
+
+.theme-option input {
+    display: none;
+}
+
+.theme-option i {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.theme-option.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+}
+
+.theme-option.active i {
+    color: var(--primary);
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--progress-bg);
+    border: 1px solid var(--border-color);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-muted);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: white;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Security specifics */
+.password-change-box {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.password-change-box h4 {
+    margin-bottom: 1.5rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .settings-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .settings-sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .settings-nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    
+    .settings-nav li {
+        flex: 1 0 auto;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        justify-content: center;
+    }
+    
+    .settings-nav li.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .preference-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

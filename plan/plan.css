@@ -1,0 +1,359 @@
+/* 
+   =================================================
+   PackSmart - Trip Planning Specific Styles
+   =================================================
+*/
+
+.plan-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.plan-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to prevent top cropping on small screens */
+    padding: 6rem 1rem 2rem; /* Reduced horizontal padding */
+    position: relative;
+    z-index: 2;
+}
+
+.plan-card {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0; /* Fix flex item minimum sizing bug that causes overflow */
+    padding: 3rem;
+    margin: auto; /* Safely center in flex container without cropping */
+    position: relative;
+    z-index: 2;
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.plan-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.plan-header p {
+    color: var(--text-muted);
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.progress-indicator .step {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.progress-indicator .step.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+.progress-indicator .step.completed {
+    background: var(--primary);
+    color: white;
+    border-color: transparent;
+}
+
+.progress-indicator .line {
+    height: 2px;
+    flex: 1;
+    max-width: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.progress-indicator .line.active {
+    background: var(--gradient-primary);
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i:first-child {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--input-bg-focus);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Fix calendar icon color in dark mode */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.dates-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Radio/Checkbox Cards */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.options-grid.activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.option-card input, .activity-chip input {
+    display: none;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option-content i {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.option-card input:checked + .option-content {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--primary);
+}
+
+.option-card input:checked + .option-content i {
+    color: var(--primary);
+}
+
+.activity-chip span {
+    display: block;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.activity-chip input:checked + span {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+    color: white;
+}
+
+/* Summary Box */
+.summary-box {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.summary-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+    width: 25px;
+    text-align: center;
+}
+
+.summary-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.summary-value {
+    font-weight: 500;
+    color: var(--text-main);
+    text-transform: capitalize;
+}
+
+/* Actions */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.final-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+}
+
+.loading-area {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.loading-area i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.loading-area p {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* Decorative Blobs */
+.plan-body .blob-1 {
+    width: 450px;
+    height: 450px;
+    top: -50px;
+    right: -100px;
+    background: var(--primary);
+    opacity: 0.4;
+}
+
+.plan-body .blob-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    left: -150px;
+    background: var(--secondary);
+    opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .plan-card {
+        padding: 1.5rem;
+    }
+    .dates-row {
+        grid-template-columns: 1fr;
+    }
+    .plan-container {
+        padding: 5rem 1rem 1rem;
+    }
+}
+
+/* Map Styles */
+#map {
+    height: 250px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1; /* Keep map below sticky nav */
+}

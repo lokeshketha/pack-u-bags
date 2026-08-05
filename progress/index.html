@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing Progress | PackSmart</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="progress.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="progress-body">
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../dashboard/" class="logo">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>PackSmart</span>
+            </a>
+            <div class="nav-actions">
+                <a href="../dashboard/" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="progress-container">
+        <div class="progress-layout">
+            
+            <!-- Left Side: Context & Inputs -->
+            <div class="left-column">
+                <!-- Weather Card -->
+                <div class="weather-card glass-card floating-animation" style="animation-delay: 0s; animation-duration: 6s;">
+                    <div class="weather-icon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div class="weather-info">
+                        <h3>28°C</h3>
+                        <p>Partly Cloudy</p>
+                        <span class="weather-loc">Bali, Indonesia</span>
+                    </div>
+                </div>
+
+                <!-- Trip Details Form -->
+                <div class="trip-settings glass-card floating-animation" style="animation-delay: 0.2s; animation-duration: 6s;">
+                    <h3>Trip Details</h3>
+                    <div class="input-group">
+                        <label>Destination</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" value="Bali, Indonesia" id="dest-input">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Duration (Days)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar"></i>
+                            <input type="number" value="10" min="1" id="duration-input">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Travelers</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user-group"></i>
+                            <input type="number" value="2" min="1" id="travelers-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Stats & Categories -->
+            <div class="right-column">
+                
+                <!-- Packing Statistics -->
+                <div class="stats-card glass-card">
+                    <div class="stats-header">
+                        <h3>Packing Progress</h3>
+                        <div class="stats-actions">
+                            <button class="icon-btn" id="reset-btn" title="Reset List"><i class="fa-solid fa-rotate-right"></i></button>
+                            <button class="btn btn-primary btn-sm" id="export-pdf"><i class="fa-solid fa-file-pdf"></i> Export</button>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-numbers">
+                        <div class="stat-box">
+                            <span class="stat-val" id="total-val">0</span>
+                            <span class="stat-label">Total Items</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-val" id="packed-val" style="color: #22c55e;">0</span>
+                            <span class="stat-label">Packed</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-val" id="remain-val" style="color: #f59e0b;">0</span>
+                            <span class="stat-label">Remaining</span>
+                        </div>
+                    </div>
+
+                    <div class="main-progress">
+                        <div class="progress-bar-container">
+                            <div class="progress-fill" id="main-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="percent-val">0%</span> Completed
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Cards -->
+                <div class="categories-grid" id="categories-grid">
+                    <!-- Category Cards injected here -->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="blob blob-1" style="top: -100px; left: -100px; width: 500px; height: 500px; opacity: 0.2;"></div>
+    <div class="blob blob-2" style="bottom: -200px; right: -100px; width: 600px; height: 600px; opacity: 0.2;"></div>
+
+    <script src="progress.js"></script>
+</body>
+</html>

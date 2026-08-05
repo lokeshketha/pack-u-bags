@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackSmart | Smart Travel Packing Assistant</title>
+    <meta name="description" content="PackSmart is an AI-powered travel packing assistant that generates smart packing lists based on your destination, weather, and trip type.">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>PackSmart</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="login/" class="btn btn-outline">Login</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="login/" class="btn btn-outline mobile-login">Login</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge">✨ New: AI Trip Planner</div>
+            <h1 class="hero-title">Pack Smarter,<br><span class="gradient-text">Travel Better</span></h1>
+            <p class="hero-subtitle">
+                AI-generated packing lists based on destination, weather, and trip type. Never forget an essential item again.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Start Packing <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#" class="btn btn-secondary"><i class="fa-solid fa-play"></i> Watch Demo</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="glass-card mockup-card floating-animation">
+                <div class="mockup-header">
+                    <div class="mockup-dest">
+                        <i class="fa-solid fa-plane-departure"></i> Bali, Indonesia
+                    </div>
+                    <div class="mockup-weather">
+                        <i class="fa-solid fa-sun"></i> 28°C
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>Packing Progress</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <ul class="mockup-list">
+                    <li class="checked"><i class="fa-solid fa-check-circle"></i> Passport & Visa</li>
+                    <li class="checked"><i class="fa-solid fa-check-circle"></i> Swimwear</li>
+                    <li class="checked"><i class="fa-solid fa-check-circle"></i> Sunscreen</li>
+                    <li><i class="fa-regular fa-circle"></i> Universal Adapter</li>
+                    <li><i class="fa-regular fa-circle"></i> Camera</li>
+                </ul>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Why Choose <span class="gradient-text">PackSmart</span></h2>
+            <p>Everything you need to organize your travel efficiently.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                </div>
+                <h3>Smart Weather Analysis</h3>
+                <p>We automatically check the forecast for your destination and suggest appropriate clothing and gear.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h3>AI Packing Generator</h3>
+                <p>Advanced algorithms create personalized lists based on trip length, activities, and your personal preferences.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <h3>Progress Tracking</h3>
+                <p>Keep track of what's packed and what's pending. Sync across all your devices seamlessly.</p>
+            </div>
+            
+            <div class="feature-card glass-card">
+                <div class="feature-icon gradient-bg">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <h3>PDF Export</h3>
+                <p>Download your packing list as a beautifully formatted PDF to print or share with travel companions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <h2>How It <span class="gradient-text">Works</span></h2>
+            <p>Your perfect packing list in four simple steps.</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Enter Trip Details</h3>
+                <p>Tell us where you're going, for how long, and what you plan to do.</p>
+            </div>
+            <div class="step-connector"></div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>AI Generates List</h3>
+                <p>Our smart system crafts a comprehensive list tailored to your specific trip.</p>
+            </div>
+            <div class="step-connector"></div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Track Progress</h3>
+                <p>Check off items as you pack them. Add custom items if needed.</p>
+            </div>
+            <div class="step-connector"></div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Travel Stress-Free</h3>
+                <p>Enjoy your trip knowing you haven't forgotten a single important thing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>What Travelers <span class="gradient-text">Say</span></h2>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial-card glass-card">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="testimonial-text">"PackSmart completely changed how I prepare for business trips. I used to always forget chargers or specific adapters. Now, it's all automated and stress-free."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="Sarah Jenkins">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Jenkins</h4>
+                        <span>Frequent Flyer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card glass-card">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="testimonial-text">"We used the PDF export feature to coordinate packing for our family of four going to Japan. The weather integration is absolute magic!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://ui-avatars.com/api/?name=David+Chen&background=random" alt="David Chen">
+                    </div>
+                    <div class="author-info">
+                        <h4>David Chen</h4>
+                        <span>Family Traveler</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-suitcase-rolling"></i>
+                    <span>PackSmart</span>
+                </a>
+                <p>Making travel preparation simple, smart, and stress-free.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Updates</a>
+                </div>
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <a href="#">Blog</a>
+                    <a href="#">Packing Tips</a>
+                    <a href="#">Help Center</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PackSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>

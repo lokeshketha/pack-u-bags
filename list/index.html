@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing List | PackSmart</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../styles.css?v=2">
+    <!-- List Specific Styles -->
+    <link rel="stylesheet" href="list.css?v=2">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="list-body">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../dashboard/" class="logo">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>PackSmart</span>
+            </a>
+            <div class="nav-actions">
+                <a href="../dashboard/" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                <button class="btn btn-primary" id="export-pdf"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="list-container">
+        <!-- Trip Context Banner -->
+        <div class="context-banner glass-card floating-animation" style="animation-delay: 0s; animation-duration: 8s;">
+            <div class="context-header">
+                <h2>Packing List for <span class="gradient-text">Bali, Indonesia</span></h2>
+                <div class="progress-pill">
+                    <span id="packed-count">0</span> / <span id="total-count">0</span> Packed
+                </div>
+            </div>
+            
+            <div class="context-details">
+                <div class="context-item">
+                    <i class="fa-regular fa-calendar"></i>
+                    <div>
+                        <span class="label">Duration</span>
+                        <span class="value">10 Days (Nov 05 - Nov 15)</span>
+                    </div>
+                </div>
+                <div class="context-item">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    <div>
+                        <span class="label">Weather</span>
+                        <span class="value">28°C, Partly Cloudy</span>
+                    </div>
+                </div>
+                <div class="context-item">
+                    <i class="fa-solid fa-person-swimming"></i>
+                    <div>
+                        <span class="label">Activities</span>
+                        <span class="value">Swimming, Trekking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-layout">
+            <!-- Sidebar: Tools -->
+            <aside class="list-tools">
+                <div class="glass-card tools-card">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-item" placeholder="Search items...">
+                    </div>
+
+                    <div class="add-item-box">
+                        <h4>Add Custom Item</h4>
+                        <div class="add-form">
+                            <input type="text" id="new-item-name" placeholder="Item name...">
+                            <div class="add-controls">
+                                <select id="new-item-category">
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Documents">Documents</option>
+                                    <option value="Toiletries">Toiletries</option>
+                                    <option value="Medicines">Medicines</option>
+                                    <option value="Accessories">Accessories</option>
+                                </select>
+                                <input type="number" id="new-item-qty" value="1" min="1">
+                                <button class="btn btn-primary btn-sm" id="add-btn"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-nav">
+                        <h4>Categories</h4>
+                        <ul id="category-nav-list">
+                            <li class="active" data-target="cat-clothing">Clothing <span class="badge">0/0</span></li>
+                            <li data-target="cat-electronics">Electronics <span class="badge">0/0</span></li>
+                            <li data-target="cat-documents">Documents <span class="badge">0/0</span></li>
+                            <li data-target="cat-toiletries">Toiletries <span class="badge">0/0</span></li>
+                            <li data-target="cat-medicines">Medicines <span class="badge">0/0</span></li>
+                            <li data-target="cat-accessories">Accessories <span class="badge">0/0</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main List Area -->
+            <main class="list-main" id="categories-container">
+                <!-- Categories injected via JS -->
+            </main>
+        </div>
+    </div>
+    
+    <!-- Decorative Blob -->
+    <div class="blob blob-2" style="bottom: -200px; right: -100px; width: 600px; height: 600px; opacity: 0.3;"></div>
+
+    <script src="../plan/config.js"></script>
+    <script src="list.js"></script>
+</body>
+</html>

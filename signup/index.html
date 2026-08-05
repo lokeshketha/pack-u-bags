@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | PackSmart</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Auth Layout Styles -->
+    <link rel="stylesheet" href="../login/login.css">
+    <!-- Signup Specific Styles -->
+    <link rel="stylesheet" href="signup.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <!-- Logo -->
+        <a href="../" class="logo login-logo">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            <span>PackSmart</span>
+        </a>
+
+        <!-- Signup Card -->
+        <div class="glass-card login-card floating-animation">
+            <h2>Create Account</h2>
+            <p class="login-subtitle">Join PackSmart for stress-free travel preparation.</p>
+
+            <form id="signup-form" novalidate>
+                <div class="input-group">
+                    <label for="fullname">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="fullname" placeholder="John Doe" required>
+                    </div>
+                    <div class="error-text" id="name-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="error-text" id="email-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" id="toggle-password">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                    <!-- Password Strength -->
+                    <div class="password-strength">
+                        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+                        <span class="strength-text" id="strength-text">Strength</span>
+                    </div>
+                    <div class="error-text" id="password-error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <input type="password" id="confirm-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="error-text" id="confirm-error"></div>
+                </div>
+
+                <div class="login-options" style="margin-bottom: 1.5rem;">
+                    <label class="remember-me terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <span>I agree to the <a href="#" class="terms-link">Terms & Conditions</a></span>
+                    </label>
+                </div>
+                <div class="error-text" id="terms-error" style="margin-top: -10px; margin-bottom: 15px;"></div>
+
+                <button type="submit" class="btn btn-primary login-btn" id="signup-btn">Create Account</button>
+            </form>
+
+            <div class="divider">
+                <span>Or</span>
+            </div>
+
+            <div class="social-login" style="grid-template-columns: 1fr;">
+                <button class="btn btn-secondary social-btn">
+                    <i class="fa-brands fa-google"></i> Continue with Google
+                </button>
+            </div>
+
+            <p class="signup-prompt">
+                Already have an account? <a href="../login/">Log in</a>
+            </p>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <script type="module" src="signup.js"></script>
+</body>
+</html>

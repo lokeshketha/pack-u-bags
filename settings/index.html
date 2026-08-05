@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | PackSmart</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Settings Specific Styles -->
+    <link rel="stylesheet" href="settings.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="settings-body">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../dashboard/index.html" class="logo">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>PackSmart</span>
+            </a>
+            <div class="nav-actions">
+                <a href="../dashboard/index.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="settings-container">
+        <div class="settings-header text-center">
+            <h2>Account Settings</h2>
+            <p class="text-muted" style="color: var(--text-muted)">Manage your profile, preferences, and security.</p>
+        </div>
+
+        <div class="settings-layout">
+            
+            <!-- Sidebar Navigation -->
+            <div class="settings-sidebar floating-animation" style="animation-delay: 0s;">
+                <ul class="settings-nav">
+                    <li class="active" data-target="section-profile"><i class="fa-solid fa-user"></i> Profile</li>
+                    <li data-target="section-preferences"><i class="fa-solid fa-sliders"></i> Preferences</li>
+                    <li data-target="section-travel"><i class="fa-solid fa-plane"></i> Travel Preferences</li>
+                    <li data-target="section-security"><i class="fa-solid fa-shield-halved"></i> Security</li>
+                </ul>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="settings-content">
+                
+                <!-- Profile Section -->
+                <section id="section-profile" class="settings-section active glass-card">
+                    <h3>Profile Information</h3>
+                    
+                    <div class="avatar-section">
+                        <div class="avatar-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff&size=100" alt="Avatar" id="user-avatar">
+                            <input type="file" id="avatar-upload" accept="image/jpeg, image/png, image/gif" style="display: none;">
+                            <button class="avatar-edit-btn" title="Change Avatar" onclick="document.getElementById('avatar-upload').click()"><i class="fa-solid fa-camera"></i></button>
+                        </div>
+                        <div class="avatar-info">
+                            <h4>Profile Picture</h4>
+                            <p>JPG, GIF or PNG. Max size of 2MB.</p>
+                        </div>
+                    </div>
+
+                    <form class="settings-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" value="John Doe">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <input type="email" value="john@example.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary save-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Preferences Section -->
+                <section id="section-preferences" class="settings-section glass-card">
+                    <h3>App Preferences</h3>
+                    
+                    <div class="preference-item">
+                        <div class="pref-info">
+                            <h4>Theme Mode</h4>
+                            <p>Choose your preferred interface theme.</p>
+                        </div>
+                        <div class="theme-toggles">
+                            <label class="theme-option active">
+                                <input type="radio" name="theme" value="dark" checked>
+                                <i class="fa-solid fa-moon"></i>
+                                <span>Dark</span>
+                            </label>
+                            <label class="theme-option">
+                                <input type="radio" name="theme" value="light">
+                                <i class="fa-solid fa-sun"></i>
+                                <span>Light</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="preference-item">
+                        <div class="pref-info">
+                            <h4>Push Notifications</h4>
+                            <p>Receive alerts for upcoming trips and packing reminders.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="preference-item">
+                        <div class="pref-info">
+                            <h4>Email Notifications</h4>
+                            <p>Receive marketing emails and feature updates.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Travel Preferences Section -->
+                <section id="section-travel" class="settings-section glass-card">
+                    <h3>Travel Preferences</h3>
+                    <p class="section-desc">These settings will be used as defaults for new packing lists.</p>
+                    
+                    <form class="settings-form">
+                        <div class="input-group">
+                            <label>Preferred Trip Type</label>
+                            <div class="input-wrapper select-wrapper">
+                                <i class="fa-solid fa-umbrella-beach"></i>
+                                <select class="custom-select">
+                                    <option value="beach" selected>Beach Holiday</option>
+                                    <option value="adventure">Adventure & Trekking</option>
+                                    <option value="business">Business Trip</option>
+                                    <option value="family">Family Vacation</option>
+                                    <option value="camping">Camping</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Default Traveler Count</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user-group"></i>
+                                <input type="number" value="2" min="1" max="20">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary save-btn">Save Defaults</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Security Section -->
+                <section id="section-security" class="settings-section glass-card">
+                    <h3>Security</h3>
+                    
+                    <div class="preference-item security-item">
+                        <div class="pref-info">
+                            <h4>Two-Factor Authentication (2FA)</h4>
+                            <p>Add an extra layer of security to your account.</p>
+                        </div>
+                        <button class="btn btn-outline btn-sm" id="enable-2fa">Enable 2FA</button>
+                    </div>
+
+                    <div class="password-change-box">
+                        <h4>Change Password</h4>
+                        <form class="settings-form">
+                            <div class="input-group">
+                                <label>Current Password</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <input type="password" placeholder="Enter current password">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>New Password</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-key"></i>
+                                    <input type="password" placeholder="Enter new password">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Confirm New Password</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-key"></i>
+                                    <input type="password" placeholder="Confirm new password">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary save-btn">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Decorative Blobs -->
+    <div class="blob blob-1" style="top: -50px; right: -50px; width: 400px; height: 400px; opacity: 0.2;"></div>
+    <div class="blob blob-2" style="bottom: -150px; left: -100px; width: 500px; height: 500px; opacity: 0.2;"></div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
